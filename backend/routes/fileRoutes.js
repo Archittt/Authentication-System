@@ -18,5 +18,6 @@ const upload = multer({ storage });
 // Routes
 router.post('/upload', authMiddleware, upload.single('file'), uploadFile);
 router.get('/download/:filename', authMiddleware, downloadFile);
+router.get('/', authMiddleware, listFiles);
 
 module.exports = router;
