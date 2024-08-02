@@ -22,3 +22,14 @@ exports.downloadFile = (req, res) => {
     res.status(404).json({ message: 'File not found' });
   }
 };
+
+exports.listFiles = (req, res) => {
+  const directoryPath = path.join(__dirname, '../uploads');
+  fs.readdir(directoryPath, (err, files) => {
+    if (err) {
+      console.error('Error reading directory:', err);
+      return res.status(500).json({ message: 'Unable to scan files' });
+    }
+    res.status(200).json({ files });
+  });
+};
