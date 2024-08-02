@@ -29,25 +29,9 @@ function Dashboard() {
       setError('File upload failed: ' + (err.response?.data?.message || err.message));
     }
   };
-  
 
-  const handleDownload = async (filename) => {
-    try {
-      const token = localStorage.getItem('token');
-      const response = await axios.get(`http://localhost:5000/api/files/download/${filename}`, {
-        headers: { 'Authorization': token },
-        responseType: 'blob'
-      });
-      const url = window.URL.createObjectURL(new Blob([response.data]));
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', filename);
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } catch (err) {
-      setError('File download failed: ' + (err.response?.data?.message || err.message));
-    }
+  const handleViewFiles = () => {
+    navigate('/files');
   };
 
   const handleLogout = () => {
@@ -64,7 +48,7 @@ function Dashboard() {
         </div>
         <button type="submit">Upload</button>
       </form>
-      <button onClick={() => handleDownload('filename-to-download')}>Download</button>
+      <button onClick={handleViewFiles}>View Files</button>
       <button onClick={handleLogout}>Logout</button>
       {error && <p>{error}</p>}
     </div>
