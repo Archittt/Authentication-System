@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const { uploadFile, downloadFile } = require('../controllers/fileController');
+const { uploadFile, downloadFile, listFiles} = require('../controllers/fileController');
 const authMiddleware = require('../middleware/authMiddleware');
 
 // Configure multer for file uploads
