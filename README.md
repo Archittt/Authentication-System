@@ -47,6 +47,7 @@ This project is a complete authentication system with user registration, login, 
   - **`Dashboard.js`**: User dashboard with file upload and download functionality.
   - **`Upload.js`**: File upload form component.
   - **`Download.js`**: File download component.
+  - **`FileList.js`**: List down all the files in the uploads directory.
 - **`src/index.js`**: Entry point of the React application.
 
 ## Usage
